@@ -1,6 +1,7 @@
 <?php
 
-require_once './AbstractFactory.php';
+namespace AbstractFactory;
+
 /**
  * JsonFactory类
  *
@@ -14,13 +15,11 @@ class JsonFactory extends AbstractFactory
      * @param string $path
      * @param string $name
      *
-     * @return Picture
+     * @return Json\Picture
      */
     public function createPicture($path, $name = '')
     {
-        require_once './Json/Picture.php';
-
-        return new Picture($path, $name);
+        return new Json\Picture($path, $name);
     }
 
     /**
@@ -28,12 +27,10 @@ class JsonFactory extends AbstractFactory
      *
      * @param string $content
      *
-     * @return Text
+     * @return Json\Text
      */
     public function createText($content)
     {
-        require_once './Json/Text.php';
-
-        return new Text($content);
+        return new Json\Text($content);
     }
 }

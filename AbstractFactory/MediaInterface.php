@@ -1,5 +1,7 @@
 <?php
 
+namespace AbstractFactory;
+
 /**
  * MediaInterface接口
  *

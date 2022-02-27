@@ -1,6 +1,7 @@
 <?php
 
-require_once './AbstractFactory.php';
+namespace AbstractFactory;
+
 /**
  * HtmlFactory类
  *
@@ -14,13 +15,11 @@ class HtmlFactory extends AbstractFactory
      * @param string $path
      * @param string $name
      *
-     * @return Picture
+     * @return Html\Picture
      */
     public function createPicture($path, $name = '')
     {
-        require_once './Html/Picture.php';
-
-        return new Picture($path, $name);
+        return new Html\Picture($path, $name);
     }
 
     /**
@@ -28,12 +27,10 @@ class HtmlFactory extends AbstractFactory
      *
      * @param string $content
      *
-     * @return Text
+     * @return Html\Text
      */
     public function createText($content)
     {
-        require_once './Html/Text.php';
-
-        return new Text($content);
+        return new Html\Text($content);
     }
 }
