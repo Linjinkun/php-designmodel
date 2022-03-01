@@ -10,6 +10,7 @@ class Loader
     public static $vendorMap = [
         'AbstractFactory' => __DIR__ . DIRECTORY_SEPARATOR . 'AbstractFactory', //抽象工厂模式
         'Builder' => __DIR__ . DIRECTORY_SEPARATOR . 'Builder', //建造者模式
+        'FactoryMethod' => __DIR__ . DIRECTORY_SEPARATOR . 'FactoryMethod', //工厂方法模式
     ];
 
     /**
