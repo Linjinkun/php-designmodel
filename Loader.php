@@ -11,6 +11,8 @@ class Loader
         'AbstractFactory' => __DIR__ . DIRECTORY_SEPARATOR . 'AbstractFactory', //抽象工厂模式
         'Builder' => __DIR__ . DIRECTORY_SEPARATOR . 'Builder', //建造者模式
         'FactoryMethod' => __DIR__ . DIRECTORY_SEPARATOR . 'FactoryMethod', //工厂方法模式
+        'Multiton' => __DIR__ . DIRECTORY_SEPARATOR . 'Multiton', //多例模式
+        'ObjectPool' => __DIR__ . DIRECTORY_SEPARATOR . 'ObjectPool', //对象池模式
     ];
 
     /**
