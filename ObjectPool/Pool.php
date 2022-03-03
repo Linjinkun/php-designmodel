@@ -51,4 +51,9 @@ class Pool
     {
         $this->instances[] = $instance;
     }
+
+    public function count(): int
+    {
+        return count($this->instances);
+    }
 }

@@ -4,25 +4,18 @@ namespace ObjectPool;
 
 class Worker
 {
-    public $id;
-
-    public function __construct()
-    {
-        $this->id = time();
-    }
-
     /**
-     * @param $image
+     * @param $query
      * @param array $callback
      *
      * @return void
      */
-    public function run($image, array $callback)
+    public function run($query, array $callback)
     {
-        if ($image instanceof Image) {
-            $image->id = date('Y-m-d H:i:s');
-        }
+        // 假设执行查询
+        var_dump($query);
 
+        // 归还连接
         call_user_func($callback, $this);
     }
 }

@@ -33,7 +33,7 @@ $pool->dispose($connection1);
 $pool->dispose($connection2);
 $pool->dispose($connection3);
 
-var_dump('=====池里有[' . count($pool->getInstances()) . ']个对象=====');
+var_dump('=====池里有[' . $pool->count() . ']个对象=====');
 
 // 其他协程再次使用这个对象池
 $connection1 = $pool->get();
@@ -44,26 +44,13 @@ $connection2 = $pool->get();
 var_dump(spl_object_id($connection2));
 
 $pool->dispose($connection1);
-var_dump('=====池里有[' . count($pool->getInstances()) . ']个对象=====');
+var_dump('=====池里有[' . $pool->count() . ']个对象=====');
 $pool->dispose($connection2);
 
 var_dump('==========================完整版===========================================');
 
-// 假设这个是一个数据库链接
-class Connection2
-{
-    public function run($query, array $callback)
-    {
-        // 假设执行查询
-        var_dump($query);
-
-        // 归还连接
-        call_user_func($callback, $this);
-    }
-}
-
 // 创建对象池
-$pool = new Pool(Connection2::class);
+$pool = new Pool(\ObjectPool\Worker::class);
 // 创建工作进程
 $processor = new Processor($pool);
 
@@ -71,4 +58,4 @@ for ($i = 1; $i <= 5; $i++) {
     $processor->process('select * from tableA where id=' . $i);
 }
 
-var_dump('池里有' . count($pool->getInstances()) . '个对象');
+var_dump('池里有' . $pool->count() . '个对象');
